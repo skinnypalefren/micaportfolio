@@ -1,80 +1,848 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SERWIN MICA VILLEGAS GARCIA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mica Garcia | Illustrator & Graphic Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Miskan';
+            src: url('Miskan.woff2') format('woff2'),
+                 url('Miskan.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            height: 100vh;
+            color: #333;
+        }
+
+        .portfolio-container {
+            display: flex;
+            width: fit-content;
+            height: 100vh;
+            transition: transform 0.5s ease;
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Hero Page */
+        .hero-page {
+            display: flex;
+        }
+
+        .hero-left {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .portfolio-title {
+            font-family: 'Miskan', sans-serif;
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-subtitle {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Hello Page */
+        .hello-page {
+            display: flex;
+        }
+
+        .hello-left {
+            flex: 1;
+            position: relative;
+        }
+
+        .hello-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .hello-title {
+            font-family: 'Miskan', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .hello-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: #FF6B6B;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            background-color: #ccc;
+        }
+
+        /* Experience Page */
+        .experience-page {
+            display: flex;
+        }
+
+        .experience-left {
+            flex: 1;
+            position: relative;
+        }
+
+        .experience-right {
+            flex: 1;
+            padding: 5%;
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-family: 'Miskan', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-period, .education-school {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .star-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            background-color: #FFD700;
+            clip-path: polygon(
+                50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+            );
+        }
+
+        .experience-role {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-company {
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-description {
+            line-height: 1.6;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 2rem 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            width: calc(50% - 15px);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Pages */
+        .projects-page {
+            display: flex;
+        }
+
+        .projects-left {
+            flex: 1;
+            padding: 2%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(150px, 1fr);
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+
+        .project-image:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .project-image:nth-child(6) {
+            grid-column: span 2;
+        }
+
+        .projects-right {
+            flex: 1;
+            padding: 5%;
+            overflow-y: auto;
+        }
+
+        .project-title {
+            font-family: 'Miskan', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-skills {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            line-height: 1.8;
+        }
+
+        /* Thank You Page */
+        .thankyou-page {
+            display: flex;
+        }
+
+        .thankyou-left {
+            flex: 1;
+            position: relative;
+        }
+
+        .thankyou-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .thankyou-title {
+            font-family: 'Miskan', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .thankyou-subtitle {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            width: 75%;
+            height: 75%;
+            position: relative;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #333;
+            transform: scale(1.3);
+        }
+    </style>
 </head>
 <body>
+    <div class="portfolio-container" id="portfolioContainer">
+        <!-- Page 1: Hero -->
+        <div class="page hero-page">
+            <div class="hero-left">
+                <img src="https://source.unsplash.com/random/800x1200/?illustration,art" alt="Illustration" class="background-image">
+            </div>
+            <div class="hero-right">
+                <h1 class="portfolio-title">portfolio</h1>
+                <p class="portfolio-subtitle">Mica Garcia | Illustrator | Graphic Designer</p>
+            </div>
+        </div>
 
-  <header>
-    <h1>My gorpren's Art Portfolio</h1>
-    <p>Illustrations · Design · Creative Expression</p>
-    <div class="filter-buttons">
-      <button class="filter-btn" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="illustration">Illustration</button>
-      <button class="filter-btn" data-filter="design">Design</button>
-      <button class="filter-btn" data-filter="crochet">Crochet</button>
+        <!-- Page 2: Hello -->
+        <div class="page hello-page">
+            <div class="hello-left">
+                <img src="https://source.unsplash.com/random/800x1200/?design,creative" alt="Illustration" class="background-image">
+            </div>
+            <div class="hello-right">
+                <h1 class="hello-title">HELLO!</h1>
+                <p class="hello-text">I'm <span class="highlight">Mica</span>. a Nueva Ecija based Illustrator and Graphic Designer, who's all about creating meaningful and illustration driven designs for everyone.<br><br>I consider myself a detail-oriented, hard working person who's willing to learn with every opportunity.</p>
+                
+                <div class="contact-info">
+                    <img src="email-icon.png" alt="Email" class="contact-icon">
+                    <span>placeholderemail@gmail.com</span>
+                </div>
+                <div class="contact-info">
+                    <img src="twitter-icon.png" alt="Twitter" class="contact-icon">
+                    <span>wiftwt</span>
+                </div>
+                <div class="contact-info">
+                    <img src="tiktok-icon.png" alt="TikTok" class="contact-icon">
+                    <span>mica.illustrates</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Experience -->
+        <div class="page experience-page">
+            <div class="experience-left">
+                <img src="https://source.unsplash.com/random/800x1200/?workspace,office" alt="Illustration" class="background-image">
+            </div>
+            <div class="experience-right">
+                <h1 class="section-title">Experience</h1>
+                
+                <div class="experience-item">
+                    <div class="experience-period">
+                        <div class="star-icon"></div>
+                        <span>2018 - present</span>
+                    </div>
+                    <h3 class="experience-role">Senior Graphic Designer</h3>
+                    <p class="experience-company">Creative Studio Inc.</p>
+                    <p class="experience-description">Lead designer for major client projects, creating visual concepts and illustrations that communicate ideas.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-period">
+                        <div class="star-icon"></div>
+                        <span>2016 - 2018</span>
+                    </div>
+                    <h3 class="experience-role">Graphic Designer</h3>
+                    <p class="experience-company">Design Solutions Co.</p>
+                    <p class="experience-description">Created branding materials, illustrations, and marketing collateral for various clients.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-period">
+                        <div class="star-icon"></div>
+                        <span>2014 - 2016</span>
+                    </div>
+                    <h3 class="experience-role">Junior Illustrator</h3>
+                    <p class="experience-company">Artistic Media</p>
+                    <p class="experience-description">Assisted in creating illustrations for books, magazines, and digital media.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-period">
+                        <div class="star-icon"></div>
+                        <span>2012 - 2014</span>
+                    </div>
+                    <h3 class="experience-role">Freelance Designer</h3>
+                    <p class="experience-company">Self-employed</p>
+                    <p class="experience-description">Worked with various clients on illustration and design projects.</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <h1 class="section-title">Education</h1>
+                
+                <div class="education-item">
+                    <div class="education-school">
+                        <div class="star-icon"></div>
+                        <span>Central Luzon State University</span>
+                    </div>
+                    <p class="experience-description">B.S. in Psychology</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <h1 class="section-title">Skills</h1>
+                
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Adobe Photoshop</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Adobe Illustrator</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Procreate</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Digital Illustration</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Brand Identity</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Typography</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>UI/UX Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Print Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Packaging Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="star-icon"></div>
+                        <span>Art Direction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Pages (5-10) -->
+        <div class="page projects-page">
+            <div class="projects-left">
+                <img src="https://source.unsplash.com/random/600x900/?illustration1" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration2" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration3" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration4" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration5" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration6" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration7" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration8" alt="Project 1" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?illustration9" alt="Project 1" class="project-image">
+            </div>
+            <div class="projects-right">
+                <h1 class="project-title">Brand Identity for Lumina</h1>
+                
+                <div class="project-skills">
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Brand Identity</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Typography</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Packaging Design</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Adobe Illustrator</span>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Created a comprehensive brand identity for Lumina, a premium skincare brand. The project included logo design, typography system, color palette, packaging design, and brand guidelines. The minimalist approach with subtle organic shapes reflects the brand's commitment to clean, natural ingredients while maintaining a luxurious feel.
+                </p>
+            </div>
+        </div>
+
+        <div class="page projects-page">
+            <div class="projects-left">
+                <img src="https://source.unsplash.com/random/600x900/?art1" alt="Project 2" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?art2" alt="Project 2" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?art3" alt="Project 2" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?art4" alt="Project 2" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?art5" alt="Project 2" class="project-image">
+            </div>
+            <div class="projects-right">
+                <h1 class="project-title">Children's Book Illustration</h1>
+                
+                <div class="project-skills">
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Digital Illustration</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Procreate</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Character Design</span>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Illustrated a 32-page children's book titled "The Adventures of Lila and Leo". Created all characters, environments, and spot illustrations using a vibrant color palette and whimsical style that appeals to children aged 4-8. The project required developing consistent characters across multiple scenes while maintaining visual interest on each page.
+                </p>
+            </div>
+        </div>
+
+        <div class="page projects-page">
+            <div class="projects-left">
+                <img src="https://source.unsplash.com/random/600x900/?design1" alt="Project 3" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?design2" alt="Project 3" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?design3" alt="Project 3" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?design4" alt="Project 3" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?design5" alt="Project 3" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?design6" alt="Project 3" class="project-image">
+            </div>
+            <div class="projects-right">
+                <h1 class="project-title">Coffee Shop Packaging</h1>
+                
+                <div class="project-skills">
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Packaging Design</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Illustration</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Adobe Photoshop</span>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Designed packaging for a specialty coffee shop's line of single-origin beans. Each origin country features unique illustrations representing its coffee-growing regions and cultural elements. The packaging uses eco-friendly materials with a minimalist design that highlights the illustrations while providing all necessary product information clearly.
+                </p>
+            </div>
+        </div>
+
+        <div class="page projects-page">
+            <div class="projects-left">
+                <img src="https://source.unsplash.com/random/600x900/?poster1" alt="Project 4" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?poster2" alt="Project 4" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?poster3" alt="Project 4" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?poster4" alt="Project 4" class="project-image">
+            </div>
+            <div class="projects-right">
+                <h1 class="project-title">Music Festival Posters</h1>
+                
+                <div class="project-skills">
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Poster Design</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Typography</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Silkscreen Printing</span>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Created a series of limited edition posters for an annual music festival. Each poster features bold typography combined with abstract illustrations representing different music genres. The designs were created with silkscreen printing in mind, using limited color palettes and textures that work well with the printing process.
+                </p>
+            </div>
+        </div>
+
+        <div class="page projects-page">
+            <div class="projects-left">
+                <img src="https://source.unsplash.com/random/600x900/?app1" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app2" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app3" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app4" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app5" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app6" alt="Project 5" class="project-image">
+                <img src="https://source.unsplash.com/random/600x900/?app7" alt="Project 5" class="project-image">
+            </div>
+            <div class="projects-right">
+                <h1 class="project-title">Mobile App Illustrations</h1>
+                
+                <div class="project-skills">
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>UI Illustration</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Character Design</span>
+                    </div>
+                    <div class="project-skill-item">
+                        <div class="star-icon"></div>
+                        <span>Adobe XD</span>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Designed a set of custom illustrations for a meditation app's onboarding process and empty states. Created a cohesive set of characters and scenes that maintain visual consistency across different screen sizes and contexts. The illustrations use a limited color palette that matches the app's branding while providing warmth and approachability.
+                </p>
+            </div>
+        </div>
+
+        <!-- Last Page: Thank You -->
+        <div class="page thankyou-page">
+            <div class="thankyou-left">
+                <img src="https://source.unsplash.com/random/800x1200/?thankyou,art" alt="Illustration" class="background-image">
+            </div>
+            <div class="thankyou-right">
+                <h1 class="thankyou-title">Thank You!</h1>
+                <p class="thankyou-subtitle">Let's work together!</p>
+                
+                <div class="contact-info">
+                    <img src="email-icon.png" alt="Email" class="contact-icon">
+                    <span>placeholderemail@gmail.com</span>
+                </div>
+                <div class="contact-info">
+                    <img src="twitter-icon.png" alt="Twitter" class="contact-icon">
+                    <span>wiftwt</span>
+                </div>
+                <div class="contact-info">
+                    <img src="tiktok-icon.png" alt="TikTok" class="contact-icon">
+                    <span>mica.illustrates</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <section class="gallery">
-    <div class="project-card" data-category="illustration">
-      <div class="card-image">
-        <img src="your-image1.jpg" alt="illustpic1" />
-      </div>
-      <div class="card-content">
-        <h3>TITLE1</h3>
-        <p>DESC1</p>
-      </div>
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close">Back</button>
+            <img src="" alt="" class="modal-image" id="modalImage">
+        </div>
     </div>
-    <div class="project-card" data-category="design">
-      <div class="card-image">
-        <img src="your-image2.jpg" alt="designpic1" />
-      </div>
-      <div class="card-content">
-        <h3>TITLE2</h3>
-        <p>DESC2</p>
-      </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots" id="navDots">
+        <!-- Dots will be added by JavaScript -->
     </div>
-    <div class="project-card" data-category="crochet">
-      <div class="card-image">
-        <img src="your-image3.jpg" alt="crochetpic1" />
-      </div>
-      <div class="card-content">
-        <h3>TITLE3</h3>
-        <p>DESC3</p>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <h2>Contact Me</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p>Email: <a href="mailto:your@email.com">mywifemail@email.com</a></p>
-  </footer>
-
-  <div class="bg-icon banana"></div>
-  <div class="bg-icon brush"></div>
-
-  <!-- Modal -->
-  <div class="modal" id="previewModal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <img id="modalImage" src="" alt="Preview" />
-      <h3 id="modalTitle"></h3>
-      <p id="modalCategory"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const portfolioContainer = document.getElementById('portfolioContainer');
+            const pages = document.querySelectorAll('.page');
+            const navDots = document.getElementById('navDots');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.querySelector('.modal-close');
+            const projectImages = document.querySelectorAll('.project-image');
+            
+            let currentPage = 0;
+            let isScrolling = false;
+            
+            // Create navigation dots
+            pages.forEach((page, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToPage(index);
+                });
+                navDots.appendChild(dot);
+            });
+            
+            // Handle wheel event for horizontal scrolling
+            window.addEventListener('wheel', function(e) {
+                if (isScrolling) return;
+                
+                e.preventDefault();
+                
+                if (e.deltaY > 0) {
+                    // Scroll down - move right
+                    if (currentPage < pages.length - 1) {
+                        currentPage++;
+                        goToPage(currentPage);
+                    }
+                } else {
+                    // Scroll up - move left
+                    if (currentPage > 0) {
+                        currentPage--;
+                        goToPage(currentPage);
+                    }
+                }
+            }, { passive: false });
+            
+            // Handle touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            document.addEventListener('touchend', function(e) {
+                if (isScrolling) return;
+                
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    // Swipe left - next page
+                    if (currentPage < pages.length - 1) {
+                        currentPage++;
+                        goToPage(currentPage);
+                    }
+                } else if (touchEndX > touchStartX + 50) {
+                    // Swipe right - previous page
+                    if (currentPage > 0) {
+                        currentPage--;
+                        goToPage(currentPage);
+                    }
+                }
+            }
+            
+            function goToPage(pageIndex) {
+                isScrolling = true;
+                currentPage = pageIndex;
+                
+                // Update container position
+                portfolioContainer.style.transform = `translateX(-${currentPage * 100}vw)`;
+                
+                // Update active dot
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    if (index === currentPage) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Reset scrolling flag after animation
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 500);
+            }
+            
+            // Image modal functionality
+            projectImages.forEach(image => {
+                image.addEventListener('click', function() {
+                    modalImage.src = this.src;
+                    modalImage.alt = this.alt;
+                    modal.classList.add('active');
+                });
+            });
+            
+            modalClose.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
